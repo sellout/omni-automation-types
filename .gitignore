@@ -1,0 +1,14 @@
+/result
+/source
+/.cache/vale/*
+!/.cache/vale/config/
+/.cache/vale/config/*
+!/.cache/vale/config/vocabularies/
+/.cache/vale/config/vocabularies/*
+!/.cache/vale/config/vocabularies/omni-automation-types/
+!/.cache/vale/Vocab/
+/.cache/vale/Vocab/*
+!/.cache/vale/Vocab/omni-automation-types/
+/.local/state/project-manager/
+/.local/state/nix/profiles/
+/.cache/direnv/

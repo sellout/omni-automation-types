@@ -1,0 +1,11 @@
+{
+  project:
+    {
+      creation-date: "2026-04-09",
+      description: "TypeScript type definitions for the Omni Automation API.",
+      name: "omni-automation-types",
+      repo: "sellout/omni-automation-types",
+      summary: "TypeScript type definitions for the Omni Automation API",
+    },
+  type: { name: "default" },
+}
