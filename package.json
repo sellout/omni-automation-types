@@ -1,0 +1,28 @@
+{
+  "name": "@sellout/omni-automation-types",
+  "version": "0.1.0",
+  "description": "TypeScript type definitions for the Omni Automation API.",
+  "types": "omnifocus/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "omnifocus": [
+        "omnifocus/index.d.ts"
+      ],
+      "omnigraffle": [
+        "omnigraffle/index.d.ts"
+      ],
+      "omnioutliner": [
+        "omnioutliner/index.d.ts"
+      ],
+      "omniplan": [
+        "omniplan/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "omnifocus",
+    "omnigraffle",
+    "omnioutliner",
+    "omniplan"
+  ]
+}
