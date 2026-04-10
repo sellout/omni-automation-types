@@ -26,10 +26,15 @@
 
   inputs = {
     ## Flaky should generally be the source of truth for its inputs.
-    flaky.url = "github:sellout/flaky";
+    flaky = {
+      inputs.systems.follows = "systems";
+      url = "github:sellout/flaky";
+    };
 
     flake-utils.follows = "flaky/flake-utils";
     nixpkgs.follows = "flaky/nixpkgs";
-    systems.follows = "flaky/systems";
+
+    ## These are the only systems supported by the Omni Group apps.
+    systems.url = "github:nix-systems/aarch64-darwin";
   };
 }

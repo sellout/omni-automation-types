@@ -35,6 +35,9 @@ in
 
     lib = {};
 
+    ## This project doesn't support any systems that Nix Ci currently does.
+    nix-ci.enable = false;
+
     homeConfigurations =
       builtins.listToAttrs
       (builtins.map
