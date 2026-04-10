@@ -109,12 +109,27 @@ in
           in ''
             mkdir -p out/omnifocus out/omnigraffle out/omnioutliner out/omniplan
 
-            cp ${apps.omnifocus}/OmniFocus.d.ts out/omnifocus/index.d.ts
-            cp ${apps.omnigraffle}/OmniGraffle.d.ts out/omnigraffle/index.d.ts
-            cp ${apps.omnioutliner}/OmniOutliner.d.ts out/omnioutliner/index.d.ts
-            cp ${apps.omniplan}/OmniPlan.d.ts out/omniplan/index.d.ts
+            ## Copy official .d.ts files under their original names.
+            cp ${apps.omnifocus}/OmniFocus.d.ts out/omnifocus/OmniFocus.d.ts
+            cp ${apps.omnigraffle}/OmniGraffle.d.ts out/omnigraffle/OmniGraffle.d.ts
+            cp ${apps.omnioutliner}/OmniOutliner.d.ts out/omnioutliner/OmniOutliner.d.ts
+            cp ${apps.omniplan}/OmniPlan.d.ts out/omniplan/OmniPlan.d.ts
 
+            ## Copy supplementary .d.ts files from the source tree.
             ${copySupplementary}
+
+            ## Generate composite index.d.ts for each app, referencing the
+            ## official types and any supplementary files.
+            for app in omnifocus omnigraffle omnioutliner omniplan; do
+              {
+                for f in out/''${app}/*.d.ts; do
+                  name=$(basename "$f")
+                  if [ "$name" != "index.d.ts" ]; then
+                    echo "/// <reference path=\"./''${name}\" />"
+                  fi
+                done
+              } > "out/''${app}/index.d.ts"
+            done
           '';
 
           installPhase = ''
