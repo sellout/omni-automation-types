@@ -8,3 +8,10 @@ declare namespace PlugIn {
     [key: string]: any;
   }
 }
+
+// Task.noteText: added in OmniFocus 4 but missing from the August 2021
+// official .d.ts. Returns the note content as a rich Text object (as
+// opposed to the plain-string `note` property).
+declare interface Task {
+  readonly noteText: Text;
+}
