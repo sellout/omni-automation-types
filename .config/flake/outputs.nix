@@ -83,8 +83,9 @@ in
           hash,
         }:
           pkgs.fetchzip {
-            inherit hash;
+            inherit curlOptsList hash;
             url = "${dtsBaseUrl}/${pname}.d.ts.zip";
+            stripRoot = false;
           })
         zips;
       in
