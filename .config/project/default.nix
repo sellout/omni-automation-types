@@ -15,4 +15,5 @@
 
   ## publishing
   services.github.settings.repository.topics = [];
+  services.github.settings.repository.private = false;
 }
